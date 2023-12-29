@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_board/models/inputs.dart';
 import 'package:provider/provider.dart';
 import 'package:spark/View/drawer%20screen/drawerdata.dart';
+import 'package:spark/common/Buttton.dart';
 import 'package:spark/common/iconchanges.dart';
 
 class DrwerScreen extends StatefulWidget {
@@ -18,127 +18,188 @@ class _DrwerScreenState extends State<DrwerScreen> {
     var isCollapsed = provider.iscolapsed;
     return Scaffold(
       body: Row(
-        children: [
-          AnimatedContainer(
-            duration: Duration(milliseconds: 300),
-            width: isCollapsed ? 80 : 250,
-            child: drwerdata(),
-          ),
-        const  SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(179, 246, 233, 233)),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.settings),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.dashboard_customize),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.cleaning_services),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.person_2_outlined),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.golf_course),
-                          SizedBox(
-                            width: 70,
-                          ),
-                          Icon(Icons.notifications),
-                          Column(
+          children: [
+            AnimatedContainer(
+              duration: Duration(milliseconds: 300),
+              width: isCollapsed ? 80 : 250,
+              child: drwerdata(),
+            ),
+          const  SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(179, 246, 233, 233)),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.settings),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.dashboard_customize),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.cleaning_services),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.person_2_outlined),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.golf_course),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            Icon(Icons.notifications),
+                            Column(
+                              children: [
+                                Text("Super Admin"),
+                                Text("Admin"),
+                              ],
+                            ),
+                            CircleAvatar(child: Icon(Icons.person_2_outlined))
+                          ],
+                        ),
+                      ),
+                    const  SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 40,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                          
                             children: [
-                              Text("Super Admin"),
-                              Text("Admin"),
+                              Text(
+                                "Job Board",
+                                style: TextStyle(fontSize: 30),
+                              ),
+                            
+                                      
+                              SizedBox(
+                                width: 10,
+                              ),
+                                      
+                              Text(
+                                "DashBoard / Job Board",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                                      
+                              SizedBox(
+                                width: 10,
+                              ),
+                                      
+                             
+                                 Text("Hide Empty Stages"),
+                                Icon(
+                                  Icons.toggle_on,
+                                  size: 50,
+                                ),
+                                     
+                                SizedBox(
+                                  width: 10,
+                                ),
+                          
+                                Container(
+                                  width: 200,
+                                  height: 30,
+                                  child: TextField(
+                                                           
+                                   decoration: InputDecoration(
+                                     hintText: 'search job',
+                                     border: OutlineInputBorder(
+                                       borderRadius: BorderRadius.circular(5),
+                              
+                                     ),
+                                     contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10)
+                                   ),
+                                   
+                                                           ),
+                                ),
+                                SizedBox(width: 10,),
+                          
+                                Buttons(
+                                  tittle: "Export", 
+                                  ontap: (){},
+                                   width: 60,
+                                 height: 20),
+                          
+                                  SizedBox(width: 10,),
+                          
+                                Buttons(
+                                  tittle: "Export with Audits", 
+                                  ontap: (){},
+                                   width: 120,
+                                 height: 20),
+                                  SizedBox(width: 10,),
+                          
+                                Buttons(
+                                  tittle: "Job Stages", 
+                                  ontap: (){},
+                                   width: 90,
+                                 height: 20),
+                                  SizedBox(width: 10,),
+                          
+                                Buttons(
+                                  tittle: "Show/Hide Stages", 
+                                  ontap: (){},
+                                   width: 90,
+                                 height: 20),
+                                  SizedBox(width: 10,),
+                          
+                                Buttons(
+                                  tittle: "Add Job", 
+                                  ontap: (){},
+                                   width: 80,
+                                 height: 20)
+                                      
                             ],
+                            
+                            
                           ),
-                          CircleAvatar(child: Icon(Icons.person_2_outlined))
-                        ],
+                        ),
                       ),
-                    ),
-                  const  SizedBox(
-                      height: 10,
-                    ),
-                  const  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Job Board",
-                          style: TextStyle(fontSize: 30),
+                      
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata(),
+                            kanboarddata()
+                          ],
                         ),
-                        Divider(
-                          thickness: 50,
-                          color: Colors.black,
-                        ),
-              
-                        SizedBox(
-                          width: 20,
-                        ),
-              
-                        Text(
-                          "DashBoard / Job Board",
-                          style: TextStyle(fontSize: 20),
-                        ),
-              
-                        SizedBox(
-                          width: 30,
-                        ),
-              
-                        Text("Hide Empty Stages"),
-                        Icon(
-                          Icons.toggle_on,
-                          size: 50,
-                        ),
-              
-                        SizedBox(
-                          width: 10,
-                        ),
-              
-                      ],
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata(),
-                          kanboarddata()
-                        ],
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      
     );
   }
 
@@ -159,7 +220,7 @@ class _DrwerScreenState extends State<DrwerScreen> {
               ],
             ),
           ),
-        ),
+        )
       ],
     );
   }
